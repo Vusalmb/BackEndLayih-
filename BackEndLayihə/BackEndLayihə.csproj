@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220129114716_createSlidersTable.cs" />
+    <Compile Remove="Migrations\20220129114716_createSlidersTable.Designer.cs" />
+    <Compile Remove="Migrations\20220129125235_changeSlidersTable.cs" />
+    <Compile Remove="Migrations\20220129125235_changeSlidersTable.Designer.cs" />
+    <Compile Remove="Migrations\20220129131426_removeSliderColumn.cs" />
+    <Compile Remove="Migrations\20220129131426_removeSliderColumn.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
