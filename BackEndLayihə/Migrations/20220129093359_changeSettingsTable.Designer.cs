@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEndLayihə.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220128083508_createSettingsTable")]
-    partial class createSettingsTable
+    [Migration("20220129093359_changeSettingsTable")]
+    partial class changeSettingsTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,6 +42,10 @@ namespace BackEndLayihə.Migrations
                     b.Property<string>("LogoTitle")
                         .HasColumnType("nvarchar(500)")
                         .HasMaxLength(500);
+
+                    b.Property<string>("ParallaxImage")
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
 
                     b.Property<string>("PinterestIcon")
                         .IsRequired()
