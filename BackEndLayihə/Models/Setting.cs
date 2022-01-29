@@ -31,5 +31,7 @@ namespace BackEndLayihə.Models
         public string TwitterIcon { get; set; }
         [StringLength(maximumLength: 150)]
         public string TwitterUrl { get; set; }
+        [StringLength(maximumLength: 150)]
+        public string ParallaxImage { get; set; }
     }
 }
