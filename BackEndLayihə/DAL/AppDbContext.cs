@@ -14,5 +14,7 @@ namespace BackEndLayihə.DAL
         }
 
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<WelcomeEduHome> WelcomeEduHomes { get; set; }
     }
 }
