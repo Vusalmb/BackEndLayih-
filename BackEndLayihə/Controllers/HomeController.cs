@@ -1,4 +1,5 @@
 ﻿using BackEndLayihə.DAL;
+using BackEndLayihə.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,14 @@ namespace BackEndLayihə.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            HomeVM model = new HomeVM
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                Sliders = _context.Sliders.OrderBy(x => x.Order).ToList(),
+                WelcomeEduHome = _context.WelcomeEduHomes.FirstOrDefault()
+            };
+
+            return View(model);
         }
     }
 }
