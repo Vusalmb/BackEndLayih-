@@ -4,35 +4,22 @@ using BackEndLayihə.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEndLayihə.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220131110108_createCourseFeaturesTable")]
+    partial class createCourseFeaturesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("BackEndLayihə.Models.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-                });
 
             modelBuilder.Entity("BackEndLayihə.Models.Course", b =>
                 {
@@ -56,9 +43,6 @@ namespace BackEndLayihə.Migrations
                         .HasColumnType("nvarchar(500)")
                         .HasMaxLength(500);
 
-                    b.Property<int>("CourseFeatureId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Detail")
                         .IsRequired()
                         .HasColumnType("nvarchar(500)")
@@ -75,32 +59,7 @@ namespace BackEndLayihə.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseFeatureId")
-                        .IsUnique();
-
                     b.ToTable("Courses");
-                });
-
-            modelBuilder.Entity("BackEndLayihə.Models.CourseCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("CourseId");
-
-                    b.ToTable("CourseCategories");
                 });
 
             modelBuilder.Entity("BackEndLayihə.Models.CourseFeature", b =>
@@ -142,28 +101,6 @@ namespace BackEndLayihə.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CourseFeatures");
-                });
-
-            modelBuilder.Entity("BackEndLayihə.Models.CourseTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("CourseTags");
                 });
 
             modelBuilder.Entity("BackEndLayihə.Models.Faculity", b =>
@@ -287,21 +224,6 @@ namespace BackEndLayihə.Migrations
                     b.ToTable("Sliders");
                 });
 
-            modelBuilder.Entity("BackEndLayihə.Models.Tag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tags");
-                });
-
             modelBuilder.Entity("BackEndLayihə.Models.Teacher", b =>
                 {
                     b.Property<int>("Id")
@@ -417,45 +339,6 @@ namespace BackEndLayihə.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WelcomeEduHomes");
-                });
-
-            modelBuilder.Entity("BackEndLayihə.Models.Course", b =>
-                {
-                    b.HasOne("BackEndLayihə.Models.CourseFeature", null)
-                        .WithOne("Course")
-                        .HasForeignKey("BackEndLayihə.Models.Course", "CourseFeatureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BackEndLayihə.Models.CourseCategory", b =>
-                {
-                    b.HasOne("BackEndLayihə.Models.Category", "Category")
-                        .WithMany("CourseCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackEndLayihə.Models.Course", "Course")
-                        .WithMany("CourseCategories")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BackEndLayihə.Models.CourseTag", b =>
-                {
-                    b.HasOne("BackEndLayihə.Models.Course", "Course")
-                        .WithMany("CourseTags")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackEndLayihə.Models.Tag", "Tag")
-                        .WithMany("CourseTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("BackEndLayihə.Models.TeacherFaculity", b =>
