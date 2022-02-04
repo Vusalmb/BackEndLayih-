@@ -1,0 +1,70 @@
+﻿@model Setting
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="mt-5">
+            <h2 class="mb-4">Edit Setting Section</h2>
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+            <form method="post" class="mt-3">
+                <div class="mb-3">
+                    <label asp-for="@Model.LogoFile" class="form-label">Logo</label>
+                    <input asp-for="@Model.LogoFile" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.LogoFile"></span>
+                    <hr />
+                    <label asp-for="@Model.LogoTitle" class="form-label">Icon Title</label>
+                    <input asp-for="@Model.LogoTitle" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.LogoTitle"></span>
+                    <hr />
+                    <label asp-for="@Model.SearchIcon" class="form-label">Search Icon</label>
+                    <input asp-for="@Model.SearchIcon" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.SearchIcon"></span>
+                    <hr />
+                    <label asp-for="@Model.FacebookIcon" class="form-label">Facebook Icon</label>
+                    <input asp-for="@Model.FacebookIcon" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.FacebookIcon"></span>
+                    <hr />
+                    <label asp-for="@Model.FacebookUrl" class="form-label">Facebook URL</label>
+                    <input asp-for="@Model.FacebookUrl" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.FacebookUrl"></span>
+                    <hr />
+                    <label asp-for="@Model.PinterestIcon" class="form-label">Pinterest Icon</label>
+                    <input asp-for="@Model.PinterestIcon" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.PinterestIcon"></span>
+                    <hr />
+                    <label asp-for="@Model.PinterestUrl" class="form-label">Pinterest URL</label>
+                    <input asp-for="@Model.PinterestUrl" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.PinterestUrl"></span>
+                    <hr />
+                    <label asp-for="@Model.VimeoIcon" class="form-label">Vimeo Icon</label>
+                    <input asp-for="@Model.VimeoIcon" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.VimeoIcon"></span>
+                    <hr />
+                    <label asp-for="@Model.VimeoUrl" class="form-label">Vimeo URL</label>
+                    <input asp-for="@Model.VimeoUrl" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.VimeoUrl"></span>
+                    <hr />
+                    <label asp-for="@Model.TwitterIcon" class="form-label">Twitter Icon</label>
+                    <input asp-for="@Model.TwitterIcon" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.TwitterIcon"></span>
+                    <hr />
+                    <label asp-for="@Model.TwitterUrl" class="form-label">Twitter URL</label>
+                    <input asp-for="@Model.TwitterUrl" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.TwitterUrl"></span>
+                    <hr />
+                    <label asp-for="@Model.ParallaxImage" class="form-label">Parallax Image</label>
+                    <input asp-for="@Model.ParallaxImage" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.ParallaxImage"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}
