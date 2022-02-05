@@ -12,12 +12,15 @@ namespace BackEndLayihə.Models
         [StringLength(maximumLength: 150)]
         public string Image { get; set; }
         [Required]
-        [StringLength(maximumLength: 500)]
+        [StringLength(maximumLength: 150)]
         public string Name { get; set; }
+        [Required]
+        [StringLength(maximumLength: 500)]
+        public string Detail { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        [Required]
         public string Address { get; set; }
-        public string Detail { get; set; }
-        public List<Speaker> Speakers { get; set; }
+        public List<EventSpeaker> EventSpeakers { get; set; }
     }
 }
