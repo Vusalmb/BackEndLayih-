@@ -25,17 +25,27 @@ namespace BackEndLayihə.Controllers
             {
                 Courses = _context.Courses.ToList()
             };
+
             return View(model);
         }
 
         public IActionResult Detail(int id)
         {
-            Course course = _context.Courses.FirstOrDefault(c => c.Id == id);
+            Course course = _context.Courses.Include(c=>c.CourseFeature).FirstOrDefault(c => c.Id == id);
+            ViewBag.CourseOrder = _context.Courses.Include(c => c.CourseFeature).OrderByDescending(c => c.Id == id).Take(3).ToList();
+            ViewBag.CategoryOrder = _context.Categories.Include(c=>c.Courses).ToList();
+
             if (course == null)
             {
                 return NotFound();
             }
             return View(course);
+        }
+
+        public IActionResult CategoryCourse(int id)
+        {
+            List<Course> courses = _context.Courses.Where(c => c.CategoryId == id).ToList();
+            return View(courses);
         }
     }
 }
