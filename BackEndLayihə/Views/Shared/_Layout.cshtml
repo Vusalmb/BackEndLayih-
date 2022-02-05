@@ -66,11 +66,11 @@
                             <div class="main-menu">
                                 <nav>
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
+                                        <li><a asp-controller="home" asp-action="index">Home</a></li>
                                         <li><a href="about.html">About</a></li>
-                                        <li><a href="course.html">courses</a></li>
-                                        <li><a href="event.html">event</a></li>
-                                        <li class="hidden-sm"><a href="teacher.html">teacher</a></li>
+                                        <li><a asp-controller="course" asp-action="index">courses</a></li>
+                                        <li><a asp-controller="event" asp-action="index">event</a></li>
+                                        <li class="hidden-sm"><a asp-controller="teacher" asp-action="index">teacher</a></li>
                                         <li><a href="blog.html">blog</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                         <li><a href="#">Buy Now</a></li>
@@ -145,7 +145,7 @@
                             <ul>
                                 <li><a href="course.html">our courses</a></li>
                                 <li><a href="about.html">about us</a></li>
-                                <li><a href="teacher.html">teachers &amp; faculty</a></li>
+                                <li><a asp-controller="teacher" asp-action="index">teachers &amp; faculty</a></li>
                                 <li><a href="#">teams &amp; conditions</a></li>
                                 <li><a href="event.html">our events</a></li>
                             </ul>

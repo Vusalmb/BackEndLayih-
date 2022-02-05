@@ -1,6 +1,6 @@
-﻿@model CourseVM
+﻿@model List<Course>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CategoryCourse";
 }
 
 <div class="banner-area-wrapper">
@@ -18,8 +18,7 @@
         </div>
     </div>
 </div>
-<!-- Banner Area End -->
-<!-- Course Start -->
+
 <div class="course-area pt-150 pb-150">
     <div class="container">
         <div class="row">
@@ -36,12 +35,12 @@
             </div>
         </div>
         <div class="row">
-            @foreach (Course courses in Model.Courses)
+            @foreach (Course courses in Model)
             {
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="single-course mb-70">
                         <div class="course-img">
-                            <a asp-controller="course" asp-action="detail" asp-route-id="@courses.Id" asp-route-categoryId="">
+                            <a asp-controller="course" asp-action="detail" asp-route-id="@courses.Id">
                                 <img src="~/img/course/@courses.Image" alt="course">
                                 <div class="course-hover">
                                     <i class="fa fa-link"></i>
@@ -59,8 +58,7 @@
         </div>
     </div>
 </div>
-<!-- Course End -->
-<!-- Subscribe Start -->
+
 <div class="subscribe-area pt-60 pb-70">
     <div class="container">
         <div class="row">
@@ -90,3 +88,4 @@
         </div>
     </div>
 </div>
+
