@@ -24,8 +24,7 @@ namespace BackEndLayihə.DAL
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseFeature> CourseFeatures { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<CourseCategory> CourseCategories { get; set; }
-        public DbSet<Tag> Tags { get; set; }
-        public DbSet<CourseTag> CourseTags { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Speaker> Speakers { get; set; }
     }
 }
