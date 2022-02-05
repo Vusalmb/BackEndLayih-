@@ -16,10 +16,8 @@ namespace BackEndLayihə.Controllers
             _context = context;
         }
 
-        public IActionResult Index(int page=1)
+        public IActionResult Index()
         {
-            ViewBag.CurrentPage = page;
-            //ViewBag.TotalPage = Math.Ceiling((decimal)_context.)
             return View();
         }
 
