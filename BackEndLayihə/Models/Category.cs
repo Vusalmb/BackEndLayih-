@@ -9,6 +9,6 @@ namespace BackEndLayihə.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<CourseCategory> CourseCategories { get; set; }
+        public List<Course> Courses { get; set; }
     }
 }

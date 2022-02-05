@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,7 +13,9 @@ namespace BackEndLayihə.Models
         public int Id { get; set; }
         [StringLength(maximumLength: 150)]
         public string Logo { get; set; }
-        [StringLength(maximumLength: 500)]
+        [NotMapped]
+        public IFormFile LogoFile { get; set; }
+        [StringLength(maximumLength: 500, ErrorMessage = "Logo başlığı 500 simvoldan uzun ola bilməz!")]
         public string LogoTitle { get; set; }
         [Required]
         public string SearchIcon { get; set; }
