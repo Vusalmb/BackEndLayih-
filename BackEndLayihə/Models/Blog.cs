@@ -8,16 +8,18 @@ using System.Threading.Tasks;
 
 namespace BackEndLayihə.Models
 {
-    public class WelcomeEduHome
+    public class Blog
     {
         public int Id { get; set; }
         [StringLength(maximumLength: 150)]
         public string Image { get; set; }
         [NotMapped]
         public IFormFile ImageFile { get; set; }
+        [Required]
         [StringLength(maximumLength: 150)]
-        public string Title { get; set; }
-        [StringLength(maximumLength: 500)]
-        public string Desc { get; set; }
+        public string Name { get; set; }
+        [Required]
+        public string Description { get; set; }
+        public DateTime Date { get; set; }
     }
 }

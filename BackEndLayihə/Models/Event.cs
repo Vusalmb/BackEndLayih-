@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,6 +13,8 @@ namespace BackEndLayihə.Models
         public int Id { get; set; }
         [StringLength(maximumLength: 150)]
         public string Image { get; set; }
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
         [Required]
         [StringLength(maximumLength: 150)]
         public string Name { get; set; }
@@ -22,5 +26,7 @@ namespace BackEndLayihə.Models
         [Required]
         public string Address { get; set; }
         public List<EventSpeaker> EventSpeakers { get; set; }
+        [NotMapped]
+        public List<int> SpeakerIds { get; set; }
     }
 }
