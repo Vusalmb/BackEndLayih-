@@ -26,5 +26,7 @@ namespace BackEndLayihə.DAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<NoticeBoard> NoticeBoards { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
     }
 }
