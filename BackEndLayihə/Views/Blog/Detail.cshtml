@@ -1,7 +1,6 @@
-﻿@model Event
+﻿@model Blog
 @{
     ViewData["Title"] = "Detail";
-    List<Speaker> related = ViewBag.RelatedSpeakers;
 }
 
 <div class="banner-area-wrapper">
@@ -11,7 +10,7 @@
                 <div class="col-xs-12">
                     <div class="banner-content-wrapper">
                         <div class="banner-content">
-                            <h2>event / details</h2>
+                            <h2>blog details</h2>
                         </div>
                     </div>
                 </div>
@@ -20,42 +19,19 @@
     </div>
 </div>
 <!-- Banner Area End -->
-<!-- Event Details Start -->
-<div class="event-details-area blog-area pt-150 pb-140">
+<!-- Blog Start -->
+<div class="blog-details-area pt-150 pb-140">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="event-details">
-                    <div class="event-details-img">
-                        <img src="~/img/event/@Model.Image" style="width: 500px" alt="event-details">
-                        <div class="event-date">
-                            <h3>@Model.StartDate.ToString("dd MMMM")</h3>
-                        </div>
+                <div class="blog-details">
+                    <div class="blog-details-img">
+                        <img src="~/img/blog/@Model.Image" alt="blog-details">
                     </div>
-                    <div class="event-details-content">
+                    <div class="blog-details-content">
                         <h2>@Model.Name</h2>
-                        <ul>
-                            <li><span>Date : </span>@Model.StartDate.ToString("dd MMMM yyyy") - @Model.EndDate.ToString("dd MMMM yyyy")</li>
-                            <li><span>Address : </span>@Model.Address</li>
-                        </ul>
-                        <p>@Model.Detail</p>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem </p>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-                        <div class="speakers-area fix">
-                            <h4>speakers</h4>
-                            @foreach (var item in ViewBag.RelatedSpeakers)
-                            {
-                                <div class="single-speaker">
-                                    <div class="speaker-img">
-                                        <img src="~/img/event/@item.Image" alt="speaker">
-                                    </div>
-                                    <div class="speaker-name">
-                                        <h5>@item.Name</h5>
-                                        <p>@item.Faculity</p>
-                                    </div>
-                                </div>
-                            }
-                        </div>
+                        <h6>@Model.Date.ToString("dd MMMM yyyy")<i class="fa fa-comments-o"></i> 4</h6>
+                        @Html.Raw(Model.Description)
                     </div>
                     <div class="reply-area">
                         <h3>LEAVE A REPLY</h3>
@@ -85,7 +61,7 @@
             </div>
             <div class="col-md-4">
                 <div class="blog-sidebar right">
-                    <div class="single-blog-widget mb-50">
+                    <div class="single-blog-widget mb-47">
                         <h3>search</h3>
                         <div class="blog-search">
                             <form id="search" action="#">
@@ -96,28 +72,28 @@
                             </form>
                         </div>
                     </div>
-                    <div class="single-blog-widget mb-50">
+                    <div class="single-blog-widget mb-47">
                         <div class="single-blog-banner">
                             <a href="blog-details.html" id="blog"><img src="~/img/blog/blog-img.jpg" alt="blog"></a>
                             <h2>best<br> eductaion<br> theme</h2>
                         </div>
                     </div>
-                    <div class="single-blog-widget mb-50">
-                        <h3>events post</h3>
-                        @foreach (var item in ViewBag.EventOrder)
+                    <div class="single-blog-widget mb-47">
+                        <h3>Blog post</h3>
+                        @foreach (var item in ViewBag.BlogOrder)
                         {
                             <div class="single-post mb-30">
                                 <div class="single-post-img">
-                                    <a asp-controller="event" asp-action="detail" asp-route-id="@item.Id">
-                                        <img src="~/img/event/@item.Image" style="width: 120px; height: 100px;" alt="post">
+                                    <a href="blog-details.html">
+                                        <img src="~/img/blog/@item.Image" alt="post" style="width: 120px;">
                                         <div class="blog-hover">
                                             <i class="fa fa-link"></i>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="single-post-content">
-                                    <h4><a asp-controller="event" asp-action="detail" asp-route-id="@item.Id">@item.Name</a></h4>
-                                    <p>@item.StartDate.ToString("dd MMMM yyyy") / @item.EndDate.ToString("dd MMMM yyyy")</p>
+                                    <h4><a href="blog-details.html">@item.Name</a></h4>
+                                    <p>@item.Date.ToString("dd MMMM yyyy")</p>
                                 </div>
                             </div>
                         }
@@ -127,7 +103,7 @@
         </div>
     </div>
 </div>
-<!-- Event Details End -->
+<!-- Blog End -->
 <!-- Subscribe Start -->
 <div class="subscribe-area pt-60 pb-70">
     <div class="container">

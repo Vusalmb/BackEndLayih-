@@ -31,7 +31,7 @@
                             <a asp-controller="teacher" asp-action="detail" asp-route-id="@teacher.Id"><img src="~/img/teacher/@teacher.Image" alt="teacher"></a>
                         </div>
                         <div class="single-teacher-content text-center">
-                            <h2><a asp-controller="teacher" asp-action="detail">@teacher.Name</a></h2>
+                            <h2><a asp-controller="teacher" asp-action="detail" asp-route-id="@teacher.Id">@teacher.Name</a></h2>
                             <h4>@teacher.Speciality</h4>
                             <ul>
                                 <li><a href="https://www.facebook.com/devitems/?ref=bookmarks"><i class="zmdi zmdi-facebook"></i></a></li>

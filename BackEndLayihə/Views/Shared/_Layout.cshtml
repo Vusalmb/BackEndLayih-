@@ -67,11 +67,11 @@
                                 <nav>
                                     <ul>
                                         <li><a asp-controller="home" asp-action="index">Home</a></li>
-                                        <li><a href="about.html">About</a></li>
+                                        <li><a asp-controller="about" asp-action="index">About</a></li>
                                         <li><a asp-controller="course" asp-action="index">courses</a></li>
                                         <li><a asp-controller="event" asp-action="index">event</a></li>
                                         <li class="hidden-sm"><a asp-controller="teacher" asp-action="index">teacher</a></li>
-                                        <li><a href="blog.html">blog</a></li>
+                                        <li><a asp-controller="blog" asp-action="index">blog</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                         <li><a href="#">Buy Now</a></li>
                                     </ul>
@@ -143,11 +143,11 @@
                         <div class="single-widget">
                             <h3>useful links</h3>
                             <ul>
-                                <li><a href="course.html">our courses</a></li>
+                                <li><a target="_blank" asp-controller="course" asp-action="index">our courses</a></li>
                                 <li><a href="about.html">about us</a></li>
-                                <li><a asp-controller="teacher" asp-action="index">teachers &amp; faculty</a></li>
+                                <li><a target="_blank" asp-controller="teacher" asp-action="index">teachers &amp; faculty</a></li>
                                 <li><a href="#">teams &amp; conditions</a></li>
-                                <li><a href="event.html">our events</a></li>
+                                <li><a target="_blank" asp-controller="event" asp-action="index">our events</a></li>
                             </ul>
                         </div>
                     </div>
