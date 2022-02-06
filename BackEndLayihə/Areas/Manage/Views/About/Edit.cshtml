@@ -1,4 +1,4 @@
-﻿@model Slider
+﻿@model WelcomeEduHome
 @{
     ViewData["Title"] = "Edit";
 }
@@ -6,10 +6,10 @@
 <div class="container">
     <div class="row">
         <div class="mt-5">
-            <h2 class="mb-4">Edit Slider Section</h2>
+            <h2 class="mb-4">Edit Welcome Section</h2>
             <div class="mt-3">
-                <h4>Current Slider Image</h4>
-                <img src="~/img/slider/@Model.Image" width="500" height="300" alt="slider_image" />
+                <h4>Current Welcome Image</h4>
+                <img src="@Model.Image" width="400" height="300" alt="welcome_image" />
             </div>
             <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
             <form method="post" class="mt-3" enctype="multipart/form-data">
@@ -18,13 +18,13 @@
                     <input asp-for="@Model.ImageFile" class="form-control">
                     <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.ImageFile"></span>
                     <hr />
-                    <label asp-for="@Model.Title" class="form-label">Image Title</label>
+                    <label asp-for="@Model.Title" class="form-label">Title</label>
                     <input asp-for="@Model.Title" class="form-control">
                     <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.Title"></span>
                     <hr />
-                    <label asp-for="@Model.Description" class="form-label">Description</label>
-                    <input asp-for="@Model.Description" class="form-control">
-                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.Description"></span>
+                    <label asp-for="@Model.Desc" class="form-label">Desc</label>
+                    <input asp-for="@Model.Desc" class="form-control">
+                    <span style="display: inline-block; margin-top: 8px;" class="text text-danger" asp-validation-for="@Model.Desc"></span>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

@@ -158,9 +158,9 @@ namespace BackEndLayihə.Areas.Manage.Controllers
 
                 if (existTeacher.Image != null)
                 {
-                    Helpers.Helper.DeleteImg(_env.WebRootPath, "img/slider", existTeacher.Image);
+                    Helpers.Helper.DeleteImg(_env.WebRootPath, "img/teacher", existTeacher.Image);
                 }
-                existTeacher.Image = teacher.ImageFile.SaveImg(_env.WebRootPath, "img/slider");
+                existTeacher.Image = teacher.ImageFile.SaveImg(_env.WebRootPath, "img/teacher");
             }
             else
             {
