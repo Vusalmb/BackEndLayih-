@@ -4,48 +4,22 @@ using BackEndLayihə.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEndLayihə.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220205193142_createCategoryTable")]
+    partial class createCategoryTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("BackEndLayihə.Models.Blog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Blogs");
-                });
 
             modelBuilder.Entity("BackEndLayihə.Models.Category", b =>
                 {
@@ -155,64 +129,6 @@ namespace BackEndLayihə.Migrations
                     b.ToTable("CourseFeatures");
                 });
 
-            modelBuilder.Entity("BackEndLayihə.Models.Event", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Detail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("BackEndLayihə.Models.EventSpeaker", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("EventId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SpeakerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EventId");
-
-                    b.HasIndex("SpeakerId");
-
-                    b.ToTable("EventSpeaker");
-                });
-
             modelBuilder.Entity("BackEndLayihə.Models.Faculity", b =>
                 {
                     b.Property<int>("Id")
@@ -245,25 +161,6 @@ namespace BackEndLayihə.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Hobbies");
-                });
-
-            modelBuilder.Entity("BackEndLayihə.Models.NoticeBoard", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("NoticeBoards");
                 });
 
             modelBuilder.Entity("BackEndLayihə.Models.Setting", b =>
@@ -351,32 +248,6 @@ namespace BackEndLayihə.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sliders");
-                });
-
-            modelBuilder.Entity("BackEndLayihə.Models.Speaker", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Faculity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Speakers");
                 });
 
             modelBuilder.Entity("BackEndLayihə.Models.Teacher", b =>
@@ -507,21 +378,6 @@ namespace BackEndLayihə.Migrations
                     b.HasOne("BackEndLayihə.Models.CourseFeature", "CourseFeature")
                         .WithOne("Course")
                         .HasForeignKey("BackEndLayihə.Models.Course", "CourseFeatureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BackEndLayihə.Models.EventSpeaker", b =>
-                {
-                    b.HasOne("BackEndLayihə.Models.Event", "Event")
-                        .WithMany("EventSpeakers")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackEndLayihə.Models.Speaker", "Speaker")
-                        .WithMany("EventSpeakers")
-                        .HasForeignKey("SpeakerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
