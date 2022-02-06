@@ -32,7 +32,7 @@ namespace BackEndLayihə.Controllers
         public IActionResult Detail(int id)
         {
             Course course = _context.Courses.Include(c=>c.CourseFeature).FirstOrDefault(c => c.Id == id);
-            ViewBag.CourseOrder = _context.Courses.Include(c => c.CourseFeature).OrderByDescending(c => c.Id == id).Take(3).ToList();
+            ViewBag.CourseOrder = _context.Courses.Include(c => c.CourseFeature).OrderByDescending(c=>c.Id).Take(3).ToList();
             ViewBag.CategoryOrder = _context.Categories.Include(c=>c.Courses).ToList();
 
             if (course == null)
